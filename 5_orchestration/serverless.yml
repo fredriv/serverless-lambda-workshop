@@ -1,0 +1,37 @@
+service: orchestration-demo
+
+provider:
+  name: aws
+  region: eu-west-1
+  runtime: python3.7
+
+functions:
+  validateTemperature:
+    handler: handler.validate_temperature
+  enrichLocation:
+    handler: handler.enrich_location
+
+stepFunctions:
+  stateMachines:
+    ProcessTemperatures:
+      name: ProcessTemperatures
+      events:
+        - http:
+            path: temperatures
+            method: post
+      definition:
+        StartAt: ValidateTemperature
+        States:
+          ValidateTemperature:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [ValidateTemperatureLambdaFunction, Arn]
+            Next: EnrichLocation
+          EnrichLocation:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [EnrichLocationLambdaFunction, Arn]
+            End: True
+
+plugins:
+  - serverless-step-functions

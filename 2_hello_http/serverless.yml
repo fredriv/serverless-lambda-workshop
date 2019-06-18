@@ -1,0 +1,14 @@
+service: hello-http
+
+provider:
+  name: aws
+  region: eu-west-1
+  runtime: python3.7
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello/{name}
+          method: get

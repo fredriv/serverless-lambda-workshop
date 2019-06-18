@@ -1,0 +1,38 @@
+service: hello-documentation
+
+provider:
+  name: aws
+  region: eu-west-1
+  runtime: python3.7
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello/{name}
+          method: get
+          documentation:
+            description: "Generate a personalized greeting"
+            pathParams:
+              -
+                name: "name"
+                description: "Name of person to be greeted"
+                required: true
+            methodResponses:
+              -
+                statusCode: "200"
+                responseModels:
+                  application/json: "HelloResponse"
+
+custom:
+  documentation:
+    models:
+      -
+        name: HelloResponse
+        description: "Greeting response"
+        contentType: "application/json"
+        schema: ${file(models/hello-response.yml)}
+
+plugins:
+  - serverless-aws-documentation

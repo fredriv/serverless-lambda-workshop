@@ -1,0 +1,12 @@
+service: event-processing
+
+provider:
+  name: aws
+  region: eu-west-1
+  runtime: python3.7
+
+functions:
+  handle_event:
+    handler: handler.handle_event
+    events:
+      - sns: my-events

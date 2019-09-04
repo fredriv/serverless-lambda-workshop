@@ -8,3 +8,11 @@ provider:
 functions:
   hello:
     handler: handler.hello
+
+plugins:
+#  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      - dev

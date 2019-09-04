@@ -10,7 +10,7 @@ functions:
     handler: handler.hello
 
 plugins:
-#  - serverless-localstack
+  - serverless-localstack
 
 custom:
   localstack:

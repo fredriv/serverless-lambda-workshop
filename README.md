@@ -20,7 +20,6 @@ To run the exercises on your local machine, we will use [LocalStack](https://git
 - Start LocalStack with `docker-compose up`
   - On Mac, you may need to run `TMPDIR=/private$TMPDIR docker-compose up`
 - In each exercise directory:
-  - Uncomment the `serverless-localstack` plugin in the `serverless.yml` files
   - Run `npm install` to install Serverless plugins
 
 ### Running on AWS (optional)
@@ -33,6 +32,8 @@ To run the exercises on your local machine, we will use [LocalStack](https://git
   - Navigate through next pages and **Create user**
   - On the result page, copy the **Access key ID** and **Secret access key**, or download the credentials CSV-file
 - Install the AWS command line tools: https://aws.amazon.com/cli/
+- In each exercise directory:
+  - Comment out the `serverless-localstack` plugin in the `serverless.yml` files
 
 Put the access and secret keys from above in the AWS credentials file, `~/.aws/credentials`:
 ```

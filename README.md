@@ -17,6 +17,8 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 To run the exercises on your local machine, we will use [LocalStack](https://github.com/localstack/localstack) to emulate AWS services.
 
 - Install [Docker](https://docs.docker.com/install/#supported-platforms) and [Docker Compose](https://docs.docker.com/compose/install/)
+- Pre-fetch Lambda Docker images:
+  - `docker image pull lambci/lambda:python3.7`
 - Start LocalStack with `docker-compose up`
   - On Mac, you may need to run `TMPDIR=/private$TMPDIR docker-compose up`
 - In each exercise directory:

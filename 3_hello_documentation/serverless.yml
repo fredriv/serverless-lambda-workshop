@@ -36,3 +36,9 @@ custom:
 
 plugins:
   - serverless-aws-documentation
+  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      - dev

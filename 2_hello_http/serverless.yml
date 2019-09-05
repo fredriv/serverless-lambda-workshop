@@ -12,3 +12,11 @@ functions:
       - http:
           path: hello/{name}
           method: get
+
+plugins:
+  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      - dev

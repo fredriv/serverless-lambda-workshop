@@ -1,8 +1,8 @@
-service: orchestration-demo
+service: orchestration
 
 provider:
   name: aws
-  region: eu-west-1
+  region: us-east-1
   runtime: python3.7
 
 functions:
@@ -35,3 +35,9 @@ stepFunctions:
 
 plugins:
   - serverless-step-functions
+  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      - dev

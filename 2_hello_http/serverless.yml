@@ -15,8 +15,10 @@ functions:
     handler: handler.hello
     events:
       - http:
-          path: hello/{name}
+          # TODO Change to use path parameter
+          path: hello
           method: get
+  # TODO Set up the new function here to handle HTTP POST event
 
 plugins:
   - serverless-localstack

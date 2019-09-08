@@ -6,13 +6,18 @@ def hello(event, context):
     GET /hello/{name}
     """
 
-    name = event["pathParameters"]["name"]
+    # TODO Extract name from path parameter instead of query parameter
+    # TODO Handle URL encoded characters
+    name = event["queryStringParameters"]["name"]
 
     response = {
         "message": f"Hello, {name}!"
     }
 
+    # TODO Return correct content type
     return {
         "statusCode": 200,
-        "body": json.dumps(response)
+        "body": json.dumps(response),
     }
+
+# TODO Implement handler for POST method calls

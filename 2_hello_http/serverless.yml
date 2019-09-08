@@ -1,3 +1,8 @@
+#
+# Serverless configuration reference:
+#
+# https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
+#
 service: hello-http
 
 provider:
@@ -19,4 +24,5 @@ plugins:
 custom:
   localstack:
     stages:
+      # Comment out if you want to deploy to AWS instead of LocalStack
       - dev

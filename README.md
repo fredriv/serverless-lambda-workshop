@@ -7,27 +7,29 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 
 ## Setup
 
-### Install Serverless Framework
-
 - Install npm: https://www.npmjs.com/get-npm
 - Install Serverless command line tools: `npm install -g serverless`
+- Install [Docker](https://docs.docker.com/install/#supported-platforms) and [Docker Compose](https://docs.docker.com/compose/install/)
+- Pre-fetch Lambda Docker images:
+  - `docker image pull localstack/localstack:0.10.2`
+  - `docker image pull lambci/lambda:python3.7`
+- Install [awscli-local](https://github.com/localstack/awscli-local) CLI wrapper for LocalStack: `pip install awslocal`
 
-### Running on local machine
+## Running on local machine
 
 To run the exercises on your local machine, we will use [LocalStack](https://github.com/localstack/localstack) to emulate AWS services.
 
-- Install [Docker](https://docs.docker.com/install/#supported-platforms) and [Docker Compose](https://docs.docker.com/compose/install/)
-- Pre-fetch Lambda Docker images:
-  - `docker image pull lambci/lambda:python3.7`
-- Start LocalStack with `docker-compose up`
+- Start LocalStack with `docker-compose up` from the top-level directory
   - On Mac, you may need to run `TMPDIR=/private$TMPDIR docker-compose up`
   - To enable debug output, run with `DEBUG=1 docker-compose up`
-- In each exercise directory:
-  - Run `npm install` to install Serverless plugins
-- Install [awscli-local](https://github.com/localstack/awscli-local) CLI wrapper for LocalStack
-  - `pip install awslocal`
 
-### Running on AWS (optional)
+### LocalStack Gotchas
+
+Full redeploy and undeploy does not work properly in LocalStack. You need to
+either redeploy individual functions (`sls deploy function -f <function-name>`)
+or restart LocalStack and do a fresh `sls deploy`.
+
+## Running on AWS (optional)
 
 - Create a free AWS account: https://portal.aws.amazon.com/billing/signup#/start
 - Create a new user for the workshop: https://console.aws.amazon.com/iam/home#/users$new

@@ -8,7 +8,7 @@ Exercise 2 - Hello HTTP!
 
 ## Exercises
 
-Deploy the `hello` Lambda function to LocalStack: `sls deploy`
+Deploy the `hello` Lambda function to LocalStack: `sls deploy`<br>
 Make note of URL endpoint of the REST API in the Serverless Framework output (or run `sls info`).
 
 1. Return correct content type `application/json`

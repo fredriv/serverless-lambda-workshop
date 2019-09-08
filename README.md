@@ -21,8 +21,11 @@ To run the exercises on your local machine, we will use [LocalStack](https://git
   - `docker image pull lambci/lambda:python3.7`
 - Start LocalStack with `docker-compose up`
   - On Mac, you may need to run `TMPDIR=/private$TMPDIR docker-compose up`
+  - To enable debug output, run with `DEBUG=1 docker-compose up`
 - In each exercise directory:
   - Run `npm install` to install Serverless plugins
+- Install [awscli-local](https://github.com/localstack/awscli-local) CLI wrapper for LocalStack
+  - `pip install awslocal`
 
 ### Running on AWS (optional)
 

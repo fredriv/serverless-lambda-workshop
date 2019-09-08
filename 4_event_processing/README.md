@@ -10,13 +10,6 @@ Exercise 4 - Event processing
 
 Deploy Serverless functions and resources: `sls deploy`
 
-Hints:
-- The AWS region and account number to use for the event mappings
-  are `us-east-1` and `000000000000`.
-- The SQS queue and Kinesis streams are already configured in the
-  `Resources` section of `serverless.yml`.
-- The SNS topic is created by Serverless Framework by default.
-
 1. In `serverless.yml`, set up event mapping for SQS queue `my-queue`
    on the `handle_sqs` function
    - https://serverless.com/framework/docs/providers/aws/events/sqs/
@@ -53,3 +46,12 @@ Hints:
 
   awslocal kinesis put-record --stream-name my-stream --partition-key 1 --data "Hello, JavaZone"
   ```
+
+### Hints:
+
+- The AWS region and account number to use for the event mappings
+  are `us-east-1` and `000000000000`.
+- The SQS queue and Kinesis streams are already configured in the
+  `Resources` section of `serverless.yml`.
+- The SNS topic is created by Serverless Framework by default.
+

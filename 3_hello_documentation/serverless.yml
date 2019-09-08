@@ -25,6 +25,10 @@ functions:
                 responseModels:
                   application/json: "HelloResponse"
 
+plugins:
+  - serverless-aws-documentation
+  - serverless-localstack
+
 custom:
   documentation:
     models:
@@ -33,12 +37,6 @@ custom:
         description: "Greeting response"
         contentType: "application/json"
         schema: ${file(models/hello-response.yml)}
-
-plugins:
-  - serverless-aws-documentation
-  - serverless-localstack
-
-custom:
   localstack:
     stages:
       - dev

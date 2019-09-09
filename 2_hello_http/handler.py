@@ -7,10 +7,12 @@ def hello(event, context):
     """
 
     # TODO Implement extracting the 'name' query parameter
-    # See https://serverless.com/framework/docs/providers/aws/events/apigateway/#request-parameters
+    # See https://serverless.com/framework/docs/providers/aws/events/apigateway#example-lambda-proxy-event-default
     name = "JavaZone"
 
     # TODO Extract name from path parameter instead of query parameter
+    # See https://serverless.com/framework/docs/providers/aws/events/apigateway/#request-parameters
+
     # TODO Handle URL encoded characters
 
     response = {

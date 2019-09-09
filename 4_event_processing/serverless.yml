@@ -11,10 +11,42 @@ provider:
   runtime: python3.7
 
 functions:
-  handle_event:
-    handler: handler.handle_event
+  # Configure the functions and event bindings here
+  #
+  # SQS: https://serverless.com/framework/docs/providers/aws/events/sqs/
+  # SNS: https://serverless.com/framework/docs/providers/aws/events/sns/
+  # Kinesis: https://serverless.com/framework/docs/providers/aws/events/streams/
+
+  handle_sqs:
+    handler: handler.handle_sqs
     events:
-      - sns: my-events
+      - sqs: arn:aws:sqs:us-east-1:000000000000:my-queue
+
+  # TODO Define handler function and event binding for SNS topic 'my-topic'
+
+  # TODO Define handler function and event binding for Kinesis stream 'my-stream'
+
+resources:
+  #
+  # Create infrastructure resources used by the Lambda function.
+  # Raw AWS CloudFormation goes in here.
+  #
+  # CloudFormation configuration for SQS queues:
+  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html
+  #
+  # CloudFormation configuration for Kinesis streams:
+  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
+  #
+  Resources:
+    myQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: my-queue
+    myStream:
+      Type: AWS::Kinesis::Stream
+      Properties:
+        Name: my-stream
+        ShardCount: 1
 
 plugins:
   - serverless-localstack

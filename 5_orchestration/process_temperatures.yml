@@ -16,6 +16,10 @@ definition:
 
       # TODO Catch errors and transfer to Fail state
       # See https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-errors.html#amazon-states-language-fallback-states
+      Catch:
+        - ErrorEquals:
+          - States.ALL
+          Next: Invalid
 
     EnrichLocation:
       Type: Task
@@ -25,3 +29,6 @@ definition:
 
     # TODO Add a Fail state to handle invalid temperatures
     # See https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-fail-state.html
+    Invalid:
+      Type: Fail
+      Cause: Temperature out of range

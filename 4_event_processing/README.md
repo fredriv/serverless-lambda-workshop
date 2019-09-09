@@ -16,7 +16,7 @@ The SQS queue and Kinesis stream used in the exercises are already configured in
 
    `awslocal sqs list-queues`
 
-   `awslocal sqs send-message --queue-url <queue-url> --message-body "Hello, JavaZone"`
+   `awslocal sqs send-message --message-body "Hello, JavaZone" --queue-url <queue-url>`
 
 3. Set up an event handler for the SNS topic `my-topic` in `serverless.yml`
    and implement the function in `handler.py`
@@ -27,7 +27,7 @@ The SQS queue and Kinesis stream used in the exercises are already configured in
 
    `awslocal sns list-topics`
 
-   `awslocal sns publish --topic-arn <topic-arn> --message "Hello, JavaZone"`
+   `awslocal sns publish --message "Hello, JavaZone" --topic-arn <topic-arn>`
 
 5. Set up an event handler for the Kinesis stream `my-stream` in `serverless.yml`
    and implement the function in `handler.py`
@@ -38,4 +38,4 @@ The SQS queue and Kinesis stream used in the exercises are already configured in
 
    `awslocal kinesis list-streams`
 
-   `awslocal kinesis put-record --stream-name my-stream --partition-key foo --data "Hello, JavaZone"`
+   `awslocal kinesis put-record --data "Hello, JavaZone" --partition-key foo --stream-name my-stream`

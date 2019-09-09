@@ -9,10 +9,54 @@ provider:
   name: aws
   region: us-east-1
   runtime: python3.7
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:PutItem
+      Resource: arn:aws:dynamodb:us-east-1:000000000000:table/temperatures
 
 functions:
   receive_event:
-    handler: collector.receive_event
+    handler: handler.receive_event
+    events:
+      - http:
+          path: events
+          method: post
+
+#  run_pipeline:
+#    handler: handler.run_pipeline
+
+#  filter_temperature:
+#    handler: handler.filter_temperature
+
+#  enrich_location:
+#    handler: handler.enrich_location
+
+#  write_temperature:
+#    handler: handler.write_temperature
+
+  get_temperatures:
+    handler: handler.get_temperatures
+    events:
+      - http:
+          path: temperatures
+          method: get
+
+resources:
+  Resources:
+    temperaturesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: temperatures
+
+        AttributeDefinitions:
+          - AttributeName: location
+            AttributeType: S
+
+        KeySchema:
+          - AttributeName: location
+            KeyType: HASH
 
 plugins:
   - serverless-localstack

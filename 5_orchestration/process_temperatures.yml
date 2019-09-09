@@ -1,8 +1,10 @@
 name: ProcessTemperatures
+#
 #events:
 #  - http:
 #      path: temperatures
 #      method: post
+#
 definition:
   StartAt: ValidateTemperature
   States:
@@ -11,8 +13,15 @@ definition:
       Resource:
         Fn::GetAtt: [validateTemperature, Arn]
       Next: EnrichLocation
+
+      # TODO Catch errors and transfer to Fail state
+      # See https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-errors.html#amazon-states-language-fallback-states
+
     EnrichLocation:
       Type: Task
       Resource:
         Fn::GetAtt: [enrichLocation, Arn]
       End: True
+
+    # TODO Add a Fail state to handle invalid temperatures
+    # See https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-fail-state.html

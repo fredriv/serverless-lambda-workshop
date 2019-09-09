@@ -13,7 +13,7 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 - Pre-fetch Lambda Docker images:
   - `docker image pull localstack/localstack:0.10.2`
   - `docker image pull lambci/lambda:python3.7`
-- Install [awscli-local](https://github.com/localstack/awscli-local) CLI wrapper for LocalStack: `pip install awslocal`
+- Install [LocalStack AWS CLI wrapper](https://github.com/localstack/awscli-local): `pip install awscli-local`
 
 ## Running on local machine
 

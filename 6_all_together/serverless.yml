@@ -1,0 +1,24 @@
+#
+# Serverless configuration reference:
+#
+# https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
+#
+service: all-together
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: python3.7
+
+functions:
+  receive_event:
+    handler: collector.receive_event
+
+plugins:
+  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      # Comment out if you want to deploy to AWS instead of LocalStack
+      - dev

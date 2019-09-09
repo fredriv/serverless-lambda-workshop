@@ -18,25 +18,7 @@ functions:
 
 stepFunctions:
   stateMachines:
-    ProcessTemperatures:
-      name: ProcessTemperatures
-      events:
-        - http:
-            path: temperatures
-            method: post
-      definition:
-        StartAt: ValidateTemperature
-        States:
-          ValidateTemperature:
-            Type: Task
-            Resource:
-              Fn::GetAtt: [ValidateTemperatureLambdaFunction, Arn]
-            Next: EnrichLocation
-          EnrichLocation:
-            Type: Task
-            Resource:
-              Fn::GetAtt: [EnrichLocationLambdaFunction, Arn]
-            End: True
+    ProcessTemperatures: ${file(process_temperatures.yml)}
 
 plugins:
   - serverless-step-functions

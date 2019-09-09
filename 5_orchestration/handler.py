@@ -8,5 +8,5 @@ def validate_temperature(event, context):
     return event
 
 def enrich_location(event, context):
-    event["location"] = "Berlin"
+    event["location"] = "Oslo"
     return event

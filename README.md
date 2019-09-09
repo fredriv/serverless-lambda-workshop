@@ -13,6 +13,8 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 - Pre-fetch Lambda Docker images:
   - `docker image pull localstack/localstack:0.10.2`
   - `docker image pull lambci/lambda:python3.7`
+- Install Python 3 and pip:
+  - Mac: https://wsvincent.com/install-python3-mac/
 - Install [LocalStack AWS CLI wrapper](https://github.com/localstack/awscli-local): `pip install awscli-local`
 
 ## Running on local machine
@@ -20,8 +22,12 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 To run the exercises on your local machine, we will use [LocalStack](https://github.com/localstack/localstack) to emulate AWS services.
 
 - Start LocalStack with `docker-compose up` from the top-level directory
-  - On Mac, you may need to run `TMPDIR=/private$TMPDIR docker-compose up`
-  - To enable debug output, run with `DEBUG=1 docker-compose up`
+- On Mac, you may need to run `TMPDIR=/private$TMPDIR docker-compose up`
+
+### Debugging
+
+- To enable debug output in LocalStack, run with `DEBUG=1 docker-compose up`
+- Debugging Serverless Framework commands: `SLS_DEBUG=* sls deploy --verbose`
 
 ### LocalStack Gotchas
 

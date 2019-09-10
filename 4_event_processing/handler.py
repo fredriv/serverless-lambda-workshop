@@ -15,9 +15,11 @@ def handle_sns(event, context):
     # See https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html
 
     # TODO Implement event handler for SNS topic
+    pass
 
 def handle_kinesis(event, content):
     # See https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html
 
     # TODO Implement event handler for Kinesis stream
     # Hint: Use base64.b64decode to decode event data
+    pass

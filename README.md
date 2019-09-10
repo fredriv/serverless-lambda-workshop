@@ -3,7 +3,7 @@ Serverless Lambda workshop
 
 Workshop on creating applications using Serverless Framework and AWS Lambda.
 
-Slides can be found here: https://www.slideshare.net/fredriv/building-applications-with-serverless-framework-and-aws-lambda
+Slides can be found here: https://www.slideshare.net/fredriv/building-applications-with-serverless-framework-and-aws-lambda-javazone-2019
 
 ## Setup
 

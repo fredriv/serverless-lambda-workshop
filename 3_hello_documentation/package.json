@@ -5,6 +5,6 @@
   "dependencies": {},
   "devDependencies": {
     "serverless-aws-documentation": "^1.1.0",
-    "serverless-localstack": "^0.4.19"
+    "serverless-localstack": "^0.4.28"
   }
 }

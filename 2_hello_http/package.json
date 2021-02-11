@@ -4,6 +4,6 @@
   "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
-    "serverless-localstack": "^0.4.19"
+    "serverless-localstack": "^0.4.28"
   }
 }

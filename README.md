@@ -3,7 +3,7 @@ Serverless Lambda workshop
 
 Workshop on creating applications using Serverless Framework and AWS Lambda.
 
-Slides can be found here: https://www.slideshare.net/fredriv/building-applications-with-serverless-framework-and-aws-lambda
+Slides can be found here: https://www.slideshare.net/fredriv/building-applications-with-serverless-framework-and-aws-lambda-javazone-2019
 
 ## Setup
 
@@ -11,7 +11,7 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 - Install Serverless command line tools: `npm install -g serverless`
 - Install [Docker](https://docs.docker.com/install/#supported-platforms) and [Docker Compose](https://docs.docker.com/compose/install/)
 - Pre-fetch Lambda Docker images:
-  - `docker image pull localstack/localstack:0.10.2`
+  - `docker image pull localstack/localstack:0.12.6`
   - `docker image pull lambci/lambda:python3.7`
 - Install Python 3 and pip:
   - Mac: https://wsvincent.com/install-python3-mac/
@@ -29,11 +29,15 @@ To run the exercises on your local machine, we will use [LocalStack](https://git
 - To enable debug output in LocalStack, run with `DEBUG=1 docker-compose up`
 - Debugging Serverless Framework commands: `SLS_DEBUG=* sls deploy --verbose`
 
-### LocalStack Gotchas
+### AWS CLI wrapper (awslocal) on Windows
 
-Full redeploy and undeploy does not work properly in LocalStack. You need to
-either redeploy individual functions (`sls deploy function -f <function-name>`)
-or restart LocalStack and do a fresh `sls deploy`.
+If you install awslocal (`pip install awscli-local`), it does not install a Windows script. See: https://github.com/localstack/awscli-local/issues/6 for a script you can use. Save this as a Batch file in the Python environments Scripts directory.
+
+### Host configuration on Docker Machine
+
+On Docker Machine, the endpoint will not be served on localhost. This requires two changes. Set the environment variable `LOCALSTACK_HOST` to the hostname or IP, e.g.: `export LOCALSTACK_HOST=192.168.99.100` or `set LOCALSTACK_HOST=192.168.99.100`. Second you must update the `serverless.yml` files in each project under `custom.localstack` add a `host` key, and set its value to `http://{hostname_or_ip}`
+
+This is used by awslocal, and when outputting endpoint information in the Localstack client.
 
 ## Running on AWS (optional)
 

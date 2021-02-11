@@ -35,6 +35,16 @@ Full redeploy and undeploy does not work properly in LocalStack. You need to
 either redeploy individual functions (`sls deploy function -f <function-name>`)
 or restart LocalStack and do a fresh `sls deploy`.
 
+### AWS CLI wrapper (awslocal) on Windows
+
+If you install awslocal (`pip install awscli-local`), it does not install a Windows script. See: https://github.com/localstack/awscli-local/issues/6 for a script you can use. Save this as a Batch file in the Python environments Scripts directory.
+
+### Host configuration on Docker Machine
+
+On Docker Machine, the endpoint will not be served on localhost. This requires two changes. Set the environment variable `LOCALSTACK_HOST` to the hostname or IP, e.g.: `export LOCALSTACK_HOST=192.168.99.100` or `set LOCALSTACK_HOST=192.168.99.100`. Second you must update the `serverless.yml` files in each project under `custom.localstack` add a `host` key, and set its value to `http://{hostname_or_ip}`
+
+This is used by awslocal, and when outputting endpoint information in the Localstack client.
+
 ## Running on AWS (optional)
 
 - Create a free AWS account: https://portal.aws.amazon.com/billing/signup#/start

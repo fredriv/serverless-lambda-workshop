@@ -3,6 +3,8 @@
 #
 # https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
 #
+frameworkVersion: ">= 2.0.0"
+
 service: hello-http
 
 provider:

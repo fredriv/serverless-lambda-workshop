@@ -29,12 +29,6 @@ To run the exercises on your local machine, we will use [LocalStack](https://git
 - To enable debug output in LocalStack, run with `DEBUG=1 docker-compose up`
 - Debugging Serverless Framework commands: `SLS_DEBUG=* sls deploy --verbose`
 
-### LocalStack Gotchas
-
-Full redeploy and undeploy does not work properly in LocalStack. You need to
-either redeploy individual functions (`sls deploy function -f <function-name>`)
-or restart LocalStack and do a fresh `sls deploy`.
-
 ### AWS CLI wrapper (awslocal) on Windows
 
 If you install awslocal (`pip install awscli-local`), it does not install a Windows script. See: https://github.com/localstack/awscli-local/issues/6 for a script you can use. Save this as a Batch file in the Python environments Scripts directory.

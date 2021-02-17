@@ -17,7 +17,7 @@ def handle_sns(event, context):
     # TODO Implement event handler for SNS topic
     for record in event["Records"]:
         msg = record["Sns"]["Message"]
-        logger.info(f"Got SQS event: {msg}")
+        logger.info(f"Got SNS event: {msg}")
 
 def handle_kinesis(event, content):
     # See https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html

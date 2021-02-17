@@ -34,7 +34,7 @@ functions:
   handle_kinesis:
     handler: handler.handle_kinesis
     events:
-      - stream: arn:aws:kinesis:us-east-1:000000000000:stream/my-stream
+      - stream: arn:aws:kinesis:eu-west-1:000000000000:stream/my-stream
 
 resources:
   #

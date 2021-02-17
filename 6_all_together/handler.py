@@ -4,7 +4,7 @@ import json
 from boto3.dynamodb.conditions import Key
 from decimal import Decimal
 
-dynamodb = boto3.resource('dynamodb', region_name='us-east-1', endpoint_url='http://localhost:4569')
+dynamodb = boto3.resource('dynamodb', region_name='eu-west-1', endpoint_url='http://localhost:4569')
 temperatures_table = dynamodb.Table('temperatures')
 
 

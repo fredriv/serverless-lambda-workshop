@@ -32,7 +32,7 @@ The SQS queue and Kinesis stream used in the exercises are already configured in
 5. Set up an event handler for the Kinesis stream `my-stream` in `serverless.yml`
    and implement the function in `handler.py`
 
-   - Hint: The AWS region and account number to use for the stream ARN in the event handler are `us-east-1` and `000000000000`.
+   - Hint: The AWS region and account number to use for the stream ARN in the event handler are `eu-west-1` and `000000000000`.
 
 4. Post a message to the Kinesis stream and check LocalStack log to verify that it works:
 

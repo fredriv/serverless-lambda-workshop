@@ -11,8 +11,8 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 - Install Serverless command line tools: `npm install -g serverless`
 - Install [Docker](https://docs.docker.com/install/#supported-platforms) and [Docker Compose](https://docs.docker.com/compose/install/)
 - Pre-fetch Lambda Docker images:
-  - `docker image pull localstack/localstack:0.12.6`
-  - `docker image pull lambci/lambda:python3.7`
+  - `docker image pull localstack/localstack:0.11.5`
+  - `docker image pull lambci/lambda:python3.8`
 - Install Python 3 and pip:
   - Mac: https://wsvincent.com/install-python3-mac/
 - Install [LocalStack AWS CLI wrapper](https://github.com/localstack/awscli-local): `pip install awscli-local`
@@ -28,6 +28,12 @@ To run the exercises on your local machine, we will use [LocalStack](https://git
 
 - To enable debug output in LocalStack, run with `DEBUG=1 docker-compose up`
 - Debugging Serverless Framework commands: `SLS_DEBUG=* sls deploy --verbose`
+
+### LocalStack Gotchas
+ 
+Full redeploy and undeploy does not work properly in LocalStack. You need to
+either redeploy individual functions (`sls deploy function -f <function-name>`)
+or restart LocalStack and do a fresh `sls deploy`.
 
 ### AWS CLI wrapper (awslocal) on Windows
 

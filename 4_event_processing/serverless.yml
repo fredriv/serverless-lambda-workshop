@@ -9,8 +9,8 @@ service: event
 
 provider:
   name: aws
-  region: us-east-1
-  runtime: python3.7
+  region: eu-west-1
+  runtime: python3.8
 
 functions:
   # Configure the functions and event bindings here
@@ -22,7 +22,7 @@ functions:
   handle_sqs:
     handler: handler.handle_sqs
     events:
-      - sqs: arn:aws:sqs:us-east-1:000000000000:my-queue
+      - sqs: arn:aws:sqs:eu-west-1:000000000000:my-queue
 
   # TODO Define handler function and event binding for SNS topic 'my-topic'
   handle_sns:

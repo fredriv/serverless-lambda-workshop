@@ -9,14 +9,14 @@ service: all-together
 
 provider:
   name: aws
-  region: us-east-1
+  region: eu-west-1
   runtime: python3.8
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:Scan
         - dynamodb:PutItem
-      Resource: arn:aws:dynamodb:us-east-1:000000000000:table/temperatures
+      Resource: arn:aws:dynamodb:eu-west-1:000000000000:table/temperatures
 
 functions:
   receive_event:

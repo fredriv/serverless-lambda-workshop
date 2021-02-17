@@ -12,7 +12,7 @@ Slides can be found here: https://www.slideshare.net/fredriv/building-applicatio
 - Install [Docker](https://docs.docker.com/install/#supported-platforms) and [Docker Compose](https://docs.docker.com/compose/install/)
 - Pre-fetch Lambda Docker images:
   - `docker image pull localstack/localstack:0.12.6`
-  - `docker image pull lambci/lambda:python3.7`
+  - `docker image pull lambci/lambda:python3.8`
 - Install Python 3 and pip:
   - Mac: https://wsvincent.com/install-python3-mac/
 - Install [LocalStack AWS CLI wrapper](https://github.com/localstack/awscli-local): `pip install awscli-local`

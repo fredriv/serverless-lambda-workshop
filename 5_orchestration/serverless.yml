@@ -10,7 +10,7 @@ service: orchestration
 provider:
   name: aws
   region: us-east-1
-  runtime: python3.7
+  runtime: python3.8
 
 functions:
   validateTemperature:
